@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url('../static/img/background.png');
+    }
+
+    #logo {
+        width: 30rem;
+    }
+
+    .login-form {
+        max-width: 35rem;
+    }
+
+    @media screen and (max-width: 576px),
+           screen and (max-height: 610px) {
+        #logo {
+            width: 15rem;
+        }
+    }
+</style>
+
+<div class="container text-center mt-3">
+    <img src="{{ url_for('static', filename='img/logo_cloud.png') }}" id="logo">
+    <div class="container-sm mt-3 border border-dark text-center rounded login-form"
+        style="background-color: whitesmoke;">
+        <h3 class="mt-3 mb-3">{% block header %}{% endblock %}</h3>
+        <form action="" method="post">
+            {% block login_forms %}
+            {% endblock %}
+            <button type="submit" class="btn btn-primary mb-2 w-100">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
